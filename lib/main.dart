@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'question.dart';
 import 'answer.dart';
@@ -32,12 +31,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
+  //variable
   int? _index = 0;
   String? resultString = '';
   List<Result>? re = [];
 
   var drinks = [
+    {
+      'que': 'SoftDrink',
+      'ans': ['sprite', 'duo', 'speed', 'coke', '7-up'],
+    },
     {
       'que': 'Coffee',
       'ans': ['cappuccino', 'mexican', 'black coffee'],
@@ -48,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     },
     {
       'que': 'Juice',
-      'ans': ['lemon', 'orange', 'soft', 'chocolate'],
+      'ans': ['lemon', 'orange', 'milkshake', 'chocolate'],
     }
   ];
 
@@ -69,19 +72,21 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void restart(){
+  void restart() {
+    print(resultString);
     setState(() {
       re!.clear();
-      _index=0;
-      resultString='';
+      _index = 0;
+      resultString = '';
     });
   }
 
+  //build
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _index! < 3
+        _index! < drinks.length
             ? Column(
                 children: [
                   //question
@@ -96,6 +101,7 @@ class _HomePageState extends State<HomePage> {
                       fncH: fnc,
                     );
                   }).toList(),
+                  Text('(${_index! + 1} / ${drinks.length})')
                 ],
               )
 

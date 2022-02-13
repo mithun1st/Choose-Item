@@ -45,9 +45,11 @@ class OutputResult extends StatelessWidget {
           child: Text(
             'Your Favorite Item Are . . . \n\n$s',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 24,
               color: Colors.indigo,
+              fontWeight: FontWeight.w500,
             ),
+            
           ),
         ),
       ],
